@@ -19,6 +19,13 @@ public class CartPage {
     private By checkFixed = By.xpath("//span[@class='price']");
 
 
+    private By addIphoneToCart = By.xpath("//body[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[3]/button[1]/span[1]/span[1]");
+    private By cost1 = By.xpath("//td[@class='product-cart-price']//span[@class='price']");
+    private By couponCode = By.id("coupon_code");
+    private By applyBtn = By.xpath("//button[@title='Apply']");
+    private By cost2 = By.xpath("//strong//span[@class='price']");
+   
+
     public CartPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -26,10 +33,6 @@ public class CartPage {
     public String getCartMessage() {
         return driver.findElement(cartMessage).getText();
     }
-
-    // public void clickWishList() {
-    //     driver.findElement(wishlist).click();
-    // }
 
     public void clickAddToCart() {
         driver.findElement(addToCart).click();
@@ -57,5 +60,23 @@ public class CartPage {
 
     public String checkFixed() {
         return driver.findElement(checkFixed).getText();
+    }
+
+     public void clickAddIphoneToCart() {
+        driver.findElement(addIphoneToCart).click();
+    }
+
+    public void enterCouponCode(String code) {
+        driver.findElement(couponCode).clear();
+        driver.findElement(couponCode).sendKeys(code);
+        driver.findElement(applyBtn).click();
+    }
+
+    public String getCost1() {
+        return driver.findElement(cost1).getText();
+    }
+
+    public String getCost2() {
+       return driver.findElement(cost2).getText();
     }
 }

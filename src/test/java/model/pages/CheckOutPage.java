@@ -12,8 +12,7 @@ public class CheckOutPage {
     private By address = By.id("billing:street1");
     private By city = By.id("billing:city");
     private By zip = By.id("billing:postcode");
-    // private By country =
-    // By.xpath("//select[@title='Country']//option[@value='VN'");
+   
     private By telephone = By.id("billing:telephone");
     private By btnContinue = By.xpath("//button[@title='Continue']");
     private By continueShip = By.xpath("//*[@id='shipping-method-buttons-container']/button");
@@ -45,6 +44,10 @@ public class CheckOutPage {
         // driver.findElement(country).click();
         driver.findElement(telephone).clear();
         driver.findElement(telephone).sendKeys(phone);
+        driver.findElement(btnContinue).click();
+    }
+
+    public void clickConBill() {
         driver.findElement(btnContinue).click();
     }
 
